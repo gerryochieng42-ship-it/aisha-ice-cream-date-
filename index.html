@@ -1,0 +1,561 @@
+HTML
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title> ice cream Date Proposal From ouma  ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#ff4d8d,#ff7eb3,#ffc1d6);
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:15px;
+    overflow-x:hidden;
+}
+
+.container{
+    width:100%;
+    max-width:420px;
+    background:white;
+    border-radius:28px;
+    padding:35px 22px;
+    box-shadow:0 15px 40px rgba(0,0,0,0.18);
+    position:relative;
+    overflow:hidden;
+}
+
+.page{
+    display:none;
+    animation:fade 0.5s ease;
+}
+
+.page.active{
+    display:block;
+}
+
+@keyframes fade{
+    from{
+        opacity:0;
+        transform:translateY(15px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+h1{
+    font-size:2rem;
+    color:#ff2e74;
+    margin-bottom:12px;
+    text-align:center;
+}
+
+h2{
+    color:#ff2e74;
+    margin-bottom:10px;
+    font-size:1.4rem;
+    text-align:center;
+}
+
+p{
+    color:#555;
+    line-height:1.7;
+    text-align:center;
+    margin-bottom:30px;
+    font-size:0.98rem;
+}
+
+/* HERO */
+
+.hero-heart{
+    font-size:4rem;
+    text-align:center;
+    margin-bottom:15px;
+}
+
+/* BUTTONS */
+
+.main-buttons{
+    position:relative;
+    height:200px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+button{
+    border:none;
+    cursor:pointer;
+    transition:0.3s ease;
+    font-weight:600;
+    border-radius:50px;
+}
+
+#yesBtn{
+    background:#ff2e74;
+    color:white;
+    padding:15px 38px;
+    font-size:1rem;
+}
+
+#yesBtn:hover{
+    transform:scale(1.06);
+}
+
+#noBtn{
+    position:absolute;
+    top:20px;
+    right:25px;
+    background:#ffe4ee;
+    color:#ff2e74;
+    border:2px solid #ffc3d8;
+    padding:8px 15px;
+    font-size:0.78rem;
+    box-shadow:0 5px 15px rgba(255,46,116,0.15);
+}
+
+/* FLAVOR CARDS */
+
+.options{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+    margin-top:20px;
+}
+
+.card{
+    background:#fff1f6;
+    border-radius:20px;
+    padding:20px 15px;
+    text-align:center;
+    cursor:pointer;
+    transition:0.3s ease;
+    border:2px solid transparent;
+}
+
+.card:hover{
+    transform:translateY(-4px);
+    border-color:#ff2e74;
+}
+
+.card.active{
+    border-color:#ff2e74;
+    background:#ffdbe8;
+}
+
+.card .emoji{
+    font-size:2.5rem;
+    margin-bottom:10px;
+}
+
+.card h3{
+    color:#ff2e74;
+    font-size:1rem;
+    margin-bottom:8px;
+}
+
+.card p{
+    font-size:0.82rem;
+    margin-bottom:0;
+}
+
+/* DATE SECTION */
+
+.date-box{
+    background:#fff1f6;
+    padding:22px;
+    border-radius:22px;
+    margin-top:20px;
+}
+
+.date-input{
+    width:100%;
+    padding:15px;
+    border-radius:15px;
+    border:2px solid #ffc6da;
+    outline:none;
+    font-size:1rem;
+    margin-top:15px;
+}
+
+.date-input:focus{
+    border-color:#ff2e74;
+}
+
+/* SUMMARY */
+
+.summary{
+    margin-top:25px;
+    background:#fff1f6;
+    padding:18px;
+    border-radius:18px;
+    line-height:1.8;
+    color:#ff2e74;
+    font-weight:500;
+    font-size:0.95rem;
+}
+
+/* ACTION BUTTONS */
+
+.next-btn,
+.submit-btn{
+    width:100%;
+    padding:16px;
+    margin-top:25px;
+    border-radius:50px;
+    font-size:1rem;
+    font-weight:600;
+    text-decoration:none;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.next-btn{
+    background:#ff2e74;
+    color:white;
+}
+
+.submit-btn{
+    background:#25D366;
+    color:white;
+    display:none;
+}
+
+/* POPUP */
+
+.popup{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.6);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+    z-index:999;
+}
+
+.popup-box{
+    width:100%;
+    max-width:340px;
+    background:white;
+    border-radius:25px;
+    padding:35px 25px;
+    text-align:center;
+    animation:popup 0.4s ease;
+}
+
+.popup-box h2{
+    font-size:1.8rem;
+}
+
+.popup-box p{
+    margin-top:15px;
+}
+
+.popup-box button{
+    background:#ff2e74;
+    color:white;
+    padding:14px 28px;
+    margin-top:10px;
+}
+
+@keyframes popup{
+    from{
+        transform:scale(0.7);
+        opacity:0;
+    }
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+}
+
+/* MOBILE */
+
+@media(max-width:480px){
+
+    .container{
+        padding:28px 18px;
+        border-radius:24px;
+    }
+
+    h1{
+        font-size:1.7rem;
+    }
+
+    h2{
+        font-size:1.25rem;
+    }
+
+    p{
+        font-size:0.92rem;
+    }
+
+    .options{
+        gap:12px;
+    }
+
+    .card{
+        padding:18px 10px;
+    }
+
+}
+
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- PAGE 1 -->
+    <div class="page active" id="page1">
+
+        <div class="hero-heart">❤️</div>
+
+        <h1>Aisha </h1>
+
+        <p>
+            Will you go on a date with me? 🥺<br>
+            I promise good vibes, laughter and some  ice cream 🍦<br>and some dihh later 🙃 
+        </p>
+
+        <div class="main-buttons">
+            <button id="yesBtn">Yes 😍</button>
+            <button id="noBtn">No 🙃</button>
+        </div>
+
+    </div>
+
+    <!-- PAGE 2 -->
+    <div class="page" id="page2">
+
+        <h1>Choose Ice Cream 🍦</h1>
+
+        <p>
+            Pick your favorite flavor for our special date ❤️
+        </p>
+
+        <div class="options">
+
+            <div class="card" onclick="selectFlavor(this,'Vanilla')">
+                <div class="emoji">🍨</div>
+                <h3>Vanilla</h3>
+                <p>Sweet & classy</p>
+            </div>
+
+            <div class="card" onclick="selectFlavor(this,'Chocolate')">
+                <div class="emoji">🍫</div>
+                <h3>Chocolate</h3>
+                <p>Rich & irresistible</p>
+            </div>
+
+            <div class="card" onclick="selectFlavor(this,'Strawberry')">
+                <div class="emoji">🍓</div>
+                <h3>Strawberry</h3>
+                <p>Cute & romantic</p>
+            </div>
+
+            <div class="card" onclick="selectFlavor(this,'Mint')">
+                <div class="emoji">🌿</div>
+                <h3>Mint</h3>
+                <p>Fresh & fun (my fav)</p>
+            </div>
+
+        </div>
+
+        <button class="next-btn" id="nextBtn" style="display:none;">
+            Continue To Date 📅
+        </button>
+
+    </div>
+
+    <!-- PAGE 3 -->
+    <div class="page" id="page3">
+
+        <h1>Pick The Date 📅</h1>
+
+        <p>
+            Choose the perfect date and time for our ice cream date ❤️
+        </p>
+
+        <div class="date-box">
+
+            <input 
+                type="datetime-local"
+                id="dateInput"
+                class="date-input"
+            >
+
+        </div>
+
+        <div class="summary" id="summaryBox" style="display:none;"></div>
+
+        <a 
+            class="submit-btn"
+            id="submitBtn"
+            target="_blank">
+            Submit Date Request 💌
+        </a>
+
+    </div>
+
+</div>
+
+<!-- POPUP -->
+
+<div class="popup" id="popup">
+
+    <div class="popup-box">
+
+        <h2>🎉 Congratulations Aisha ml!</h2>
+
+        <p>
+            You just agreed to go on a date with me ❤️
+        </p>
+
+        <button onclick="openFlavorPage()">
+            Continue 🍦
+        </button>
+
+    </div>
+
+</div>
+
+<script>
+
+const noBtn = document.getElementById("noBtn");
+const yesBtn = document.getElementById("yesBtn");
+
+let noScale = 1;
+let selectedFlavor = "";
+let selectedDate = "";
+
+/* NO BUTTON */
+
+noBtn.addEventListener("mouseover", moveButton);
+noBtn.addEventListener("click", moveButton);
+
+function moveButton(){
+
+    const container = document.querySelector(".main-buttons");
+
+    const maxX = container.clientWidth - noBtn.offsetWidth;
+    const maxY = container.clientHeight - noBtn.offsetHeight;
+
+    const randomX = Math.floor(Math.random() * maxX);
+    const randomY = Math.floor(Math.random() * maxY);
+
+    noBtn.style.left = randomX + "px";
+    noBtn.style.top = randomY + "px";
+
+    noScale -= 0.1;
+
+    if(noScale < 0.3){
+        noScale = 0.3;
+    }
+
+    noBtn.style.transform = `scale(${noScale})`;
+
+}
+
+/* YES BUTTON */
+
+yesBtn.addEventListener("click", () => {
+
+    document.getElementById("popup").style.display = "flex";
+
+});
+
+/* OPEN FLAVOR PAGE */
+
+function openFlavorPage(){
+
+    document.getElementById("popup").style.display = "none";
+
+    document.getElementById("page1").classList.remove("active");
+    document.getElementById("page2").classList.add("active");
+
+}
+
+/* SELECT FLAVOR */
+
+function selectFlavor(card, flavor){
+
+    selectedFlavor = flavor;
+
+    document.querySelectorAll(".card").forEach(card => {
+        card.classList.remove("active");
+    });
+
+    card.classList.add("active");
+
+    document.getElementById("nextBtn").style.display = "flex";
+
+}
+
+/* NEXT PAGE */
+
+document.getElementById("nextBtn").addEventListener("click", () => {
+
+    document.getElementById("page2").classList.remove("active");
+    document.getElementById("page3").classList.add("active");
+
+});
+
+/* DATE INPUT */
+
+document.getElementById("dateInput").addEventListener("change", () => {
+
+    selectedDate = document.getElementById("dateInput").value;
+
+    if(selectedDate && selectedFlavor){
+
+        const summary =
+        `
+        🍦 Ice Cream: <b>${selectedFlavor}</b><br>
+        📅 Date & Time: <b>${selectedDate}</b>
+
+        `;
+
+        document.getElementById("summaryBox").style.display = "block";
+        document.getElementById("summaryBox").innerHTML = summary;
+
+        const message =
+`Hey ml ❤️
+i accept the date invitation 🥰
+
+🍦 Ice Cream Choice: ${selectedFlavor}
+
+📅 Selected Date: ${selectedDate}`;
+
+        const encodedMessage = encodeURIComponent(message);
+
+        document.getElementById("submitBtn").href =
+        `https://wa.me/254792946075?text=${encodedMessage}`;
+
+        document.getElementById("submitBtn").style.display = "flex";
+
+    }
+
+});
+
+</script>
+
+</body>
+</html>
